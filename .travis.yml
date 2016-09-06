@@ -1,0 +1,12 @@
+language: android
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-23.0.0
+    - android-23
+  
+sudo: required
+
+script:
+   - ./gradlew build
