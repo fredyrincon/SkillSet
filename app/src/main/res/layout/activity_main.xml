@@ -38,24 +38,28 @@
             android:id="@+id/nextButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="Next 1"/>
 
         <Button
             android:id="@+id/nextButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="Next 2"/>
 
         <Button
             android:id="@+id/nextButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="Next 3"/>
 
         <Button
             android:id="@+id/nextButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="Next 4"/>
 
     </LinearLayout>
