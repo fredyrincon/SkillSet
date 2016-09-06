@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SkillSet</string>
+
+    <string name="text_welcome">Welcome Fredy Rincon</string>
+    <string name="text_home">Home Fredy Rincon</string>
 </resources>
