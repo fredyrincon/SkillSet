@@ -20,9 +20,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
     lintOptions {
         abortOnError false;
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'release'
+            keyPassword 'release'
+            storeFile file('release.keystore')
+            storePassword 'release'
+        }
+    }
+
+    productFlavors {
+        dev {
+            resValue "string", "app_enviroment", "DEV";
+        }
+
+        qa {
+            resValue "string", "app_enviroment", "QA";
+            signingConfig signingConfigs.release
+        }
+
+        production {
+            resValue "string", "app_enviroment", "PROD";
+            signingConfig signingConfigs.release
+        }
     }
 }
 
@@ -50,10 +77,17 @@ dependencies {
     compile 'com.google.dagger:dagger:2.5'
     provided 'javax.annotation:jsr250-api:1.0'
 
-    //WebServices
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    //Api
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.retrofit:retrofit-mock:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
     compile 'com.google.code.gson:gson:2.7'
+
+    //compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    //compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    //compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
+    //compile 'com.squareup.retrofit:retrofit-mock:1.9.0'
 
 
     //Testing configuration
@@ -63,5 +97,10 @@ dependencies {
     // Testing-only dependencies
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    //Reactive and annotations
+    provided 'javax.annotation:jsr250-api:1.0'
+    compile 'io.reactivex:rxjava:1.1.1'
+    compile 'io.reactivex:rxandroid:1.1.0'
 
 }

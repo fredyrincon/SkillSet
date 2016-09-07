@@ -18,6 +18,13 @@
         android:layout_marginTop="10dp"
         android:text="Hello World!" />
 
+    <ListView
+        android:id="@+id/listdataView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeTextView"
+        android:layout_above="@+id/validationTextView"/>
+
     <TextView
         android:id="@+id/validationTextView"
         android:layout_width="wrap_content"

@@ -34,7 +34,7 @@ public class ApplicationEspressoTest extends ActivityInstrumentationTestCase2<Ma
 
     //Test if hello world test is available
     public void testDependencyInjectionMainActivity() {
-        String valueToMatch = "Dependency injection worked: true value WebService Implementation";
+        String valueToMatch = "Dependency injection worked";
         ViewInteraction helloWorldText;
         helloWorldText = onView(withText(valueToMatch)); // Find the text
         helloWorldText.check(matches(isDisplayed())); // Assert text is displayed
@@ -50,6 +50,13 @@ public class ApplicationEspressoTest extends ActivityInstrumentationTestCase2<Ma
     public void testButton4MainActivity() {
         onView(withId(R.id.nextButton4)).perform(click());
         String valueToMatch = "Still in the MainActivity";
+        onView(withText(valueToMatch)).check(matches(isDisplayed()));
+    }
+
+    //Check that if user click button next will show next activity
+    public void testApiDataActivity() {
+        onView(withId(R.id.nextButton2)).perform(click());
+        String valueToMatch = "repo1";
         onView(withText(valueToMatch)).check(matches(isDisplayed()));
     }
 
